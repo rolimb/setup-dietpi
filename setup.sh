@@ -2,6 +2,11 @@
 
 _uname ="$1"
 if [ -z "$_uname" ] ; then
-  echo "Usage: setup.sh username"
+  shift
+  _uname="--$(echo "$_uname" | tr '=' ' ')"
+else
+  echo "Usage: setup.sh username=<username>"
   return 1
 fi
+
+echo "Uname:" $_uname
